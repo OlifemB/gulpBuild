@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.min.css" />
+  </head>
+  <body>
+    <%- include('./ejs/menu'); %>
+
+    <div class="main">
+      <section id="header" class="section header header-cover">
+        <div class="container">
+          <div class="header-title">
+            <div >
+              Cinema<br />
+              Medley
+            </div>
+          </div>
+        </div>
+      </section>
+      <div style="z-index: 100">
+        <section id="video" class="section">
+          <div class="container">
+            <h2 class="h2">Видео с концертов</h2>
+          </div>
+        </section>
+
+        <section id="afisha" class="section">
+          <div class="container">
+            <h2 class="text-sm">Афиша</h2>
+            <div class="flex-list">
+              asd
+            </div>
+          </div>
+        </section>
+
+        <section id="sked" class="section">
+          <div class="container">
+            <h2 class="h2">Программа</h2>
+          </div>
+        </section>
+
+        <section id="orchestra" class="section">
+          <div class="container">
+            <h2 class="h2">Об оркестре</h2>
+          </div>
+        </section>
+
+        <section id="soloist" class="section">
+          <div class="container">
+            <h2 class="h2">Солисты</h2>
+          </div>
+        </section>
+
+        <section id="header" class="section">
+          <div class="container">
+            <h2 class="h2">Контакты</h2>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <scripts src="scripts/main.min.js"></scripts>
+    <script>
+      function scrollIntoView(anchors) {
+        for (let anchor of anchors) {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const blockID = anchor.getAttribute("href").substr(1);
+
+            document.getElementById(blockID).scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          });
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const anchors = document.querySelectorAll('a[href*="#"]');
+        scrollIntoView(anchors);
+      });
+    </script>
+  </body>
+</html>
